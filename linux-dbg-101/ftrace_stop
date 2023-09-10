@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Usage: ftrace_stop
+DPATH="/sys/kernel/debug/tracing"
+cat $DPATH/trace > /tmp/ftrace.log
+echo 0 > $DPATH/tracing_on
+echo 0 > $DPATH/tracing_enabled
+echo nop > $DPATH/current_tracer

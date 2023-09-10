@@ -1,0 +1,45 @@
+#into .gdbinit
+
+# -- links
+# http://beej.us/guide/bggdb/
+# http://bluec0re.blogspot.ru/2011/05/gdb-disassembly-syntax-highlighting-cpp.html
+# https://www.ibm.com/developerworks/library/l-tip-prompt/
+
+set prompt [\033[01;34mgdb\033[0m]\ 
+shell mkfifo /tmp/color_pipe.gdb
+
+define hook-disassemble
+echo \n
+shell cat /tmp/color_pipe.gdb | c++filt | highlight --syntax=asm -s edit-emacs -Oxterm256 &
+set logging redirect on
+set logging on /tmp/color_pipe.gdb
+end 
+
+define hookpost-disassemble
+hookpost-list
+end 
+
+define hook-list
+echo \n
+shell cat /tmp/color_pipe.gdb | c++filt | highlight --syntax=cpp -s edit-emacs -Oxterm256 &
+set logging redirect on
+set logging on /tmp/color_pipe.gdb
+end 
+
+define hookpost-list
+set logging off 
+set logging redirect off 
+shell sleep 0.1s
+end 
+
+define hook-quit
+shell rm /tmp/color_pipe.gdb
+end 
+
+define re
+hookpost-disassemble
+echo \033[0m
+end 
+document re
+Restore colorscheme
+end 

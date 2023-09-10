@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+lttng create demo_session
+lttng enable-event --kernel    --all -s demo_session
+lttng enable-event --userspace --all -s demo_session --filter '$ctx.procname != "lttng" && $ctx.pid != "lttng-sessiond"'
+lttng enable-channel channel0 --kernel    --subbuf-size 1G
+lttng enable-channel channel0 --userspace --subbuf-size 1G
+lttng add-context -k -t pid -t procname
+lttng start
+$*
+lttng stop
+lttng view 2>&1 | tee lttng-session.log
+lttng destroy demo_session
+

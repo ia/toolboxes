@@ -1,0 +1,23 @@
+
+# color prompt
+set prompt \033[01;31m gdb >\033[0m\ 
+
+# enable history
+set history filename ~/.gdb_history
+set history save
+set history size 1000
+
+# disable question on b for shared objects
+#set breakpoint pending on
+
+# enable logging
+set logging on
+set logging file ~/.gdb_log
+
+# print settings - http://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html
+set print array on
+set print array-indexes on
+set print pretty on
+set print union on
+set print vtbl on
+
