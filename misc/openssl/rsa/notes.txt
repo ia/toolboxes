@@ -1,0 +1,4 @@
+
+http://ardoino.com/20-openssl-rsa-implementation/
+http://www.devco.net/archives/2006/02/13/public_-_private_key_encryption_using_openssl.php
+
