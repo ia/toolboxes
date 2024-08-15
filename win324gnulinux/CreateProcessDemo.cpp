@@ -1,3 +1,8 @@
+/*
+ * Sample demo with WinNT CreateProcess system call usage
+ *  - source: https://learn.microsoft.com/en-us/windows/win32/procthread/creating-processes
+ *  - documentation: https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa
+ */
 
 #include <windows.h>
 #include <stdio.h>
