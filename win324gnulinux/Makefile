@@ -6,3 +6,5 @@ build: CreateProcessDemo.cpp
 clean: CreateProcessDemo.exe
 	rm  -f  CreateProcessDemo.exe
 
+.PHONY: clean
+
