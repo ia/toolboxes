@@ -6,7 +6,7 @@ build: CreateProcessDemo.cpp
 test: build
 	wine CreateProcessDemo.exe explorer.exe
 
-clean: CreateProcessDemo.exe
+clean:
 	rm  -f  CreateProcessDemo.exe
 
 .PHONY: clean
