@@ -9,5 +9,5 @@ test: build
 clean:
 	rm  -f  CreateProcessDemo.exe
 
-.PHONY: clean
+.PHONY: clean test
 
